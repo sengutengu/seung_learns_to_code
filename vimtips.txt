@@ -1,0 +1,18 @@
+Hi Seung:
+
+To use Vim for commit messages:
+
+You start in Command Mode in Vim. Press I to go into Insert mode.
+
+Type your message as you like
+
+
+When finished, type <Esc> to go back into Command Mode.
+
+
+Then, to save and quit use :x or :wq in Command Mode
+
+
+To abandon a commit message use :q! instead
+
+-Peter
