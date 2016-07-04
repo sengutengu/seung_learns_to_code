@@ -1,4 +1,5 @@
 import random
+from sys import exit
 
 class Pet(object):
 
@@ -26,10 +27,10 @@ def next_action():
                     "\n\"F\" to feed your pet, "
                     "\n\"H\" to take your pet to the vet, and "
                    "\n\"X\" to exit this program. "
-                    "\n: "))
+                    "\n: ")).upper()
     while True:
         
-        if choice.upper() in ("C", "S", "P", "F", "H","X"):
+        if choice in ("C", "S", "P", "F", "H","X"):
             break
         else:
             choice = input("That's not a valid answer. Try again: ")
@@ -37,11 +38,30 @@ def next_action():
     return choice
 
 
+def choice_tree(choice):
+   
+    if choice == "C":
+        print(pet_name + " is waiting for you to act.")
+        next_action()
+    elif choice == "S":
+        Pet.return_stats(new_pet)
+    elif choice == "P":
+        print("You played with " + pet_name + ".")
+    elif choice == "F":
+        print("You fed " + pet_name + ".")
+    elif choice == "H":
+        print("You took " + pet_name + " to the vet.")
+    elif choice == "X":
+        exit()
+
+=========================================================================
+
 print("Welcome to your virtual pet generator!")
 pet_name = str(input("Please name your pet: "))
 
 new_pet = Pet(pet_name)
 
-choice = next_action()
-                   
-                   
+
+while True:
+    choice = next_action()
+    choice_tree(choice)
